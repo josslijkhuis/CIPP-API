@@ -48,7 +48,8 @@ if ($hasAppInsights) {
 # Import core modules
 $SwCoreModules = [System.Diagnostics.Stopwatch]::StartNew()
 $ModulesPath = Join-Path $env:CIPPRootPath 'Modules'
-$Modules = @('CIPPCore', 'CippExtensions', 'AzBobbyTables')
+# CloudDock 17-11-2026: CIPPPwPush expliciet laden; anders faalt Get-CIPPPwPushVersion (11.4.0) en geeft CIPP kale wachtwoorden i.p.v. een PwPush-link.
+$Modules = @('CIPPCore', 'CippExtensions', 'CIPPPwPush', 'AzBobbyTables')
 foreach ($Module in $Modules) {
     $SwModule = [System.Diagnostics.Stopwatch]::StartNew()
     try {
